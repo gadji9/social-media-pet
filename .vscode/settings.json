@@ -1,0 +1,6 @@
+{
+    "i18next.i18nPaths": "d:/ulbi/production/public/locales,d:/ulbi/production/src/shared/config/i18n",
+    "editor.formatOnSave": true,
+    "files.eol": "\n",
+    "typescript.tsdk": "node_modules\\typescript\\lib"
+}
