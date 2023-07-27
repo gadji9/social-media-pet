@@ -41,6 +41,7 @@ OutlineDark.decorators = [ThemeDecorator(Theme.DARK)];
 
 export const BackgroundM = Template.bind({});
 BackgroundM.args = {
+    children: 'Text',
     theme: ThemeButton.BACKGROUND,
     size: SizeButton.M,
 };
@@ -48,6 +49,7 @@ BackgroundM.decorators = [ThemeDecorator(Theme.DARK)];
 
 export const BackgroundInvertedM = Template.bind({});
 BackgroundInvertedM.args = {
+    children: 'Text',
     theme: ThemeButton.BACKGROUND_INVERTED,
     size: SizeButton.M,
 };
@@ -55,6 +57,7 @@ BackgroundInvertedM.decorators = [ThemeDecorator(Theme.DARK)];
 
 export const SquareM = Template.bind({});
 SquareM.args = {
+    children: 'Text',
     theme: ThemeButton.BACKGROUND_INVERTED,
     square: true,
     size: SizeButton.M,
@@ -62,6 +65,7 @@ SquareM.args = {
 
 export const BackgroundL = Template.bind({});
 BackgroundL.args = {
+    children: 'Text',
     theme: ThemeButton.BACKGROUND,
     size: SizeButton.L,
 };
@@ -69,6 +73,7 @@ BackgroundL.decorators = [ThemeDecorator(Theme.DARK)];
 
 export const BackgroundInvertedL = Template.bind({});
 BackgroundInvertedL.args = {
+    children: 'Text',
     theme: ThemeButton.BACKGROUND_INVERTED,
     size: SizeButton.L,
 };
@@ -76,6 +81,7 @@ BackgroundInvertedL.decorators = [ThemeDecorator(Theme.DARK)];
 
 export const SquareL = Template.bind({});
 SquareL.args = {
+    children: 'Text',
     theme: ThemeButton.BACKGROUND_INVERTED,
     square: true,
     size: SizeButton.L,
@@ -84,6 +90,7 @@ SquareL.decorators = [ThemeDecorator(Theme.DARK)];
 
 export const BackgroundXL = Template.bind({});
 BackgroundXL.args = {
+    children: 'Text',
     theme: ThemeButton.BACKGROUND,
     size: SizeButton.XL,
 };
@@ -91,6 +98,7 @@ BackgroundXL.decorators = [ThemeDecorator(Theme.DARK)];
 
 export const BackgroundInvertedXL = Template.bind({});
 BackgroundInvertedXL.args = {
+    children: 'Text',
     theme: ThemeButton.BACKGROUND_INVERTED,
     size: SizeButton.XL,
 };
@@ -98,6 +106,7 @@ BackgroundInvertedXL.decorators = [ThemeDecorator(Theme.DARK)];
 
 export const SquareXL = Template.bind({});
 SquareXL.args = {
+    children: 'Text',
     theme: ThemeButton.BACKGROUND_INVERTED,
     square: true,
     size: SizeButton.XL,
