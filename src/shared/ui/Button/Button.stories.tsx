@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
-import { Button, ThemeButton } from './Button';
+import { Button, SizeButton, ThemeButton } from './Button';
 
 export default {
     title: 'shared/Button',
@@ -38,3 +38,68 @@ OutlineDark.args = {
     theme: ThemeButton.OUTLINE,
 };
 OutlineDark.decorators = [ThemeDecorator(Theme.DARK)];
+
+export const BackgroundM = Template.bind({});
+BackgroundM.args = {
+    theme: ThemeButton.BACKGROUND,
+    size: SizeButton.M,
+};
+BackgroundM.decorators = [ThemeDecorator(Theme.DARK)];
+
+export const BackgroundInvertedM = Template.bind({});
+BackgroundInvertedM.args = {
+    theme: ThemeButton.BACKGROUND_INVERTED,
+    size: SizeButton.M,
+};
+BackgroundInvertedM.decorators = [ThemeDecorator(Theme.DARK)];
+
+export const SquareM = Template.bind({});
+SquareM.args = {
+    theme: ThemeButton.BACKGROUND_INVERTED,
+    square: true,
+    size: SizeButton.M,
+};
+
+export const BackgroundL = Template.bind({});
+BackgroundL.args = {
+    theme: ThemeButton.BACKGROUND,
+    size: SizeButton.L,
+};
+BackgroundL.decorators = [ThemeDecorator(Theme.DARK)];
+
+export const BackgroundInvertedL = Template.bind({});
+BackgroundInvertedL.args = {
+    theme: ThemeButton.BACKGROUND_INVERTED,
+    size: SizeButton.L,
+};
+BackgroundInvertedL.decorators = [ThemeDecorator(Theme.DARK)];
+
+export const SquareL = Template.bind({});
+SquareL.args = {
+    theme: ThemeButton.BACKGROUND_INVERTED,
+    square: true,
+    size: SizeButton.L,
+};
+SquareL.decorators = [ThemeDecorator(Theme.DARK)];
+
+export const BackgroundXL = Template.bind({});
+BackgroundXL.args = {
+    theme: ThemeButton.BACKGROUND,
+    size: SizeButton.XL,
+};
+BackgroundXL.decorators = [ThemeDecorator(Theme.DARK)];
+
+export const BackgroundInvertedXL = Template.bind({});
+BackgroundInvertedXL.args = {
+    theme: ThemeButton.BACKGROUND_INVERTED,
+    size: SizeButton.XL,
+};
+BackgroundInvertedXL.decorators = [ThemeDecorator(Theme.DARK)];
+
+export const SquareXL = Template.bind({});
+SquareXL.args = {
+    theme: ThemeButton.BACKGROUND_INVERTED,
+    square: true,
+    size: SizeButton.XL,
+};
+SquareXL.decorators = [ThemeDecorator(Theme.DARK)];

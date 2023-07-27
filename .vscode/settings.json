@@ -2,5 +2,13 @@
     "i18next.i18nPaths": "d:/ulbi/production/public/locales,d:/ulbi/production/src/shared/config/i18n",
     "editor.formatOnSave": true,
     "files.eol": "\n",
-    "typescript.tsdk": "node_modules\\typescript\\lib"
+    "typescript.tsdk": "node_modules\\typescript\\lib",
+    "stylelint.config": null,
+    "css.validate": false,
+    "less.validate": false,
+    "scss.validate": false,
+    "stylelint.validate": ["css", "scss"],
+    "editor.codeActionsOnSave": {
+		"source.fixAll.stylelint": true
+	},
 }
