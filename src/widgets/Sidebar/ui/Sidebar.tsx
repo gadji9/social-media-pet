@@ -4,10 +4,10 @@ import { ThemeSwitcher } from 'shared/ui/ThemeSwitcher';
 import { LangSwitcher } from 'shared/ui/LangSwitcher/LangSwitcher';
 import { Button, SizeButton, ThemeButton } from 'shared/ui/Button/Button';
 import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
-import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import MainIcon from 'shared/assets/icons/main.svg';
 import AboutIcon from 'shared/assets/icons/about.svg';
 import { useTranslation } from 'react-i18next';
+import { RoutePath } from 'app/providers/router/routeConfig/routeConfig';
 
 import cls from './Sidebar.module.scss';
 
