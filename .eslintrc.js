@@ -41,6 +41,8 @@ module.exports = {
         'max-len': ['error', { ignoreComments: true, code: 100 }],
         'linebreak-style': 0,
         'implicit-arrow-linebreak': 0,
+        'jsx-a11y/no-static-element-interactions': 0,
+        'jsx-a11y/click-events-have-key-events': 0,
     },
     globals: {
         __IS_DEV__: true,
