@@ -25,7 +25,6 @@ const Modal: FunctionComponent<IModalProps> = ({
     onClose,
 }) => {
     const [isClosing, setIsClosing] = useState(false);
-    const { theme } = useTheme();
 
     const timerRef = useRef<ReturnType<typeof setTimeout>>();
 
@@ -69,9 +68,7 @@ const Modal: FunctionComponent<IModalProps> = ({
 
     return (
         <Portal>
-            <div
-                className={classNames(cls.Modal, mods, [className, cls[theme]])}
-            >
+            <div className={classNames(cls.Modal, mods, [className])}>
                 <div className={cls.overlay} onClick={closeHandler}>
                     <div className={cls.content} onClick={onContentClick}>
                         {children}
