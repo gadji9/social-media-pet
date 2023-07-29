@@ -1,51 +1,49 @@
-import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
-
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
+import type { Meta, StoryObj } from '@storybook/react';
 import { Theme } from 'app/providers/ThemeProvider';
+import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
+
 import { Button, SizeButton, ThemeButton } from './Button';
 
-export default {
+const meta = {
     title: 'shared/Button',
     component: Button,
-    argTypes: {
-        backgroundColor: { control: 'color' },
-    },
-} as ComponentMeta<typeof Button>;
+} satisfies Meta<typeof Button>;
 
-const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
+export default meta;
 
-export const Primary = Template.bind({});
+type Story = StoryObj<typeof meta>;
+
+export const Primary: Story = {};
 Primary.args = {
     children: 'Text',
 };
 
-export const Clear = Template.bind({});
+export const Clear: Story = {};
 Clear.args = {
     children: 'Text',
     theme: ThemeButton.CLEAR,
 };
 
-export const ClearInverted = Template.bind({});
+export const ClearInverted: Story = {};
 ClearInverted.args = {
     children: 'Text',
     theme: ThemeButton.CLEAR_INVERTED,
 };
 
-export const Outline = Template.bind({});
+export const Outline: Story = {};
 Outline.args = {
     children: 'Text',
     theme: ThemeButton.OUTLINE,
 };
 
-export const OutlineDark = Template.bind({});
+export const OutlineDark: Story = {};
 OutlineDark.args = {
     children: 'Text',
     theme: ThemeButton.OUTLINE,
 };
 OutlineDark.decorators = [ThemeDecorator(Theme.DARK)];
 
-export const BackgroundM = Template.bind({});
+export const BackgroundM: Story = {};
 BackgroundM.args = {
     children: 'Text',
     theme: ThemeButton.BACKGROUND,
@@ -53,7 +51,7 @@ BackgroundM.args = {
 };
 BackgroundM.decorators = [ThemeDecorator(Theme.DARK)];
 
-export const BackgroundInvertedM = Template.bind({});
+export const BackgroundInvertedM: Story = {};
 BackgroundInvertedM.args = {
     children: 'Text',
     theme: ThemeButton.BACKGROUND_INVERTED,
@@ -61,7 +59,7 @@ BackgroundInvertedM.args = {
 };
 BackgroundInvertedM.decorators = [ThemeDecorator(Theme.DARK)];
 
-export const SquareM = Template.bind({});
+export const SquareM: Story = {};
 SquareM.args = {
     children: 'Text',
     theme: ThemeButton.BACKGROUND_INVERTED,
@@ -69,7 +67,7 @@ SquareM.args = {
     size: SizeButton.M,
 };
 
-export const BackgroundL = Template.bind({});
+export const BackgroundL: Story = {};
 BackgroundL.args = {
     children: 'Text',
     theme: ThemeButton.BACKGROUND,
@@ -77,7 +75,7 @@ BackgroundL.args = {
 };
 BackgroundL.decorators = [ThemeDecorator(Theme.DARK)];
 
-export const BackgroundInvertedL = Template.bind({});
+export const BackgroundInvertedL: Story = {};
 BackgroundInvertedL.args = {
     children: 'Text',
     theme: ThemeButton.BACKGROUND_INVERTED,
@@ -85,7 +83,7 @@ BackgroundInvertedL.args = {
 };
 BackgroundInvertedL.decorators = [ThemeDecorator(Theme.DARK)];
 
-export const SquareL = Template.bind({});
+export const SquareL: Story = {};
 SquareL.args = {
     children: 'Text',
     theme: ThemeButton.BACKGROUND_INVERTED,
@@ -94,7 +92,7 @@ SquareL.args = {
 };
 SquareL.decorators = [ThemeDecorator(Theme.DARK)];
 
-export const BackgroundXL = Template.bind({});
+export const BackgroundXL: Story = {};
 BackgroundXL.args = {
     children: 'Text',
     theme: ThemeButton.BACKGROUND,
@@ -102,7 +100,7 @@ BackgroundXL.args = {
 };
 BackgroundXL.decorators = [ThemeDecorator(Theme.DARK)];
 
-export const BackgroundInvertedXL = Template.bind({});
+export const BackgroundInvertedXL: Story = {};
 BackgroundInvertedXL.args = {
     children: 'Text',
     theme: ThemeButton.BACKGROUND_INVERTED,
@@ -110,7 +108,7 @@ BackgroundInvertedXL.args = {
 };
 BackgroundInvertedXL.decorators = [ThemeDecorator(Theme.DARK)];
 
-export const SquareXL = Template.bind({});
+export const SquareXL: Story = {};
 SquareXL.args = {
     children: 'Text',
     theme: ThemeButton.BACKGROUND_INVERTED,
@@ -118,3 +116,11 @@ SquareXL.args = {
     size: SizeButton.XL,
 };
 SquareXL.decorators = [ThemeDecorator(Theme.DARK)];
+
+export const Disabled: Story = {};
+Disabled.args = {
+    children: 'Text',
+    theme: ThemeButton.OUTLINE,
+    disabled: true,
+};
+Disabled.decorators = [ThemeDecorator(Theme.DARK)];

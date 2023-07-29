@@ -38,7 +38,7 @@ module.exports = {
         'import/no-extraneous-dependencies': 'off',
         'no-underscore-dangle': 'off',
         'i18next/no-literal-string': 0,
-        'max-len': ['error', { ignoreComments: true, code: 100 }],
+        'max-len': ['error', { ignoreComments: true, code: 120 }],
         'linebreak-style': 0,
         'implicit-arrow-linebreak': 0,
         'jsx-a11y/no-static-element-interactions': 0,
@@ -46,6 +46,8 @@ module.exports = {
         'no-param-reassign': 0,
         'arrow-body-style': 0,
         'react/prop-types': 0,
+        'object-curly-newline': 0,
+        'operator-linebreak': 0,
     },
     globals: {
         __IS_DEV__: true,

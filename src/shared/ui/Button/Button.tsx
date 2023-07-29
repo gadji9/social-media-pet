@@ -30,12 +30,14 @@ export const Button: FC<ButtonProps> = ({
     theme,
     square,
     size,
+    disabled,
     ...otherProps
 }) => {
     const mods = {
         [cls[theme]]: true,
         [cls.square]: square,
         [cls[size]]: true,
+        [cls.disabled]: disabled,
     };
 
     return (
