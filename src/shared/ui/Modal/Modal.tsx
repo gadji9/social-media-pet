@@ -16,6 +16,7 @@ interface IModalProps {
     children?: ReactNode;
     isOpen: boolean;
     onClose: () => void;
+    lazy?: boolean;
 }
 
 const Modal: FunctionComponent<IModalProps> = ({
@@ -23,8 +24,16 @@ const Modal: FunctionComponent<IModalProps> = ({
     children,
     isOpen,
     onClose,
+    lazy,
 }) => {
     const [isClosing, setIsClosing] = useState(false);
+    const [isMounted, setIsMounted] = useState(false);
+
+    useEffect(() => {
+        if (isOpen) {
+            setIsMounted(true);
+        }
+    }, [isOpen]);
 
     const timerRef = useRef<ReturnType<typeof setTimeout>>();
 
@@ -65,6 +74,10 @@ const Modal: FunctionComponent<IModalProps> = ({
             window.removeEventListener('keydown', onKeyDown);
         };
     }, [isOpen]);
+
+    if (lazy && !isMounted) {
+        return null;
+    }
 
     return (
         <Portal>
