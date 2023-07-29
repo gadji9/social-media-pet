@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Button, ThemeButton } from 'shared/ui/Button/Button';
-import { getUserAuthState, userActions } from '../../../entities/User';
+import { getUserAuthState, userActions } from 'entities/User';
 import cls from './Navbar.module.scss';
 
 interface NavbarProps {
