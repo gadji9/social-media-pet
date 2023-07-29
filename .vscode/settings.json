@@ -10,5 +10,6 @@
     "stylelint.validate": ["css", "scss"],
     "editor.codeActionsOnSave": {
 		"source.fixAll.stylelint": true
-	},
+  },
+  "git.postCommitCommand": "push",
 }
