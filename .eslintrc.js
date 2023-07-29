@@ -45,6 +45,7 @@ module.exports = {
         'jsx-a11y/click-events-have-key-events': 0,
         'no-param-reassign': 0,
         'arrow-body-style': 0,
+        'react/prop-types': 0,
     },
     globals: {
         __IS_DEV__: true,
