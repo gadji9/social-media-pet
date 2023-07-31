@@ -1,4 +1,4 @@
-import { FunctionComponent } from 'react';
+import { FunctionComponent, memo } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './Text.module.scss';
 
@@ -14,16 +14,13 @@ interface ITextProps {
     theme?: TextTheme;
 }
 
-export const Text: FunctionComponent<ITextProps> = ({
-    className,
-    title,
-    text,
-    theme = TextTheme.PRIMARY,
-}) => {
-    return (
-        <div className={classNames('', {}, [className, cls[theme]])}>
-            {title && <p className={cls.title}>{title}</p>}
-            <p className={cls.text}>{text}</p>
-        </div>
-    );
-};
+export const Text: FunctionComponent<ITextProps> = memo(
+    ({ className, title, text, theme = TextTheme.PRIMARY }) => {
+        return (
+            <div className={classNames('', {}, [className, cls[theme]])}>
+                {title && <p className={cls.title}>{title}</p>}
+                <p className={cls.text}>{text}</p>
+            </div>
+        );
+    },
+);

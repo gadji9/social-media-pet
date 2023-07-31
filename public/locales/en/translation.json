@@ -16,5 +16,6 @@
   "Введите пароль": "Enter password",
   "Форма авторизации": "Authorization",
   "Неверное имя пользователя или пароль": "User with such email/password not found",
-  "Выйти": "Logout"
+  "Выйти": "Logout",
+  "Профиль": "Profile"
 }
