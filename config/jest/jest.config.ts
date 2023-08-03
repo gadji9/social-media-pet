@@ -35,6 +35,7 @@ export default {
     transformIgnorePatterns: ['node_modules/(?!variables/.*)'],
     globals: {
         __IS_DEV__: true,
+        __API__: '',
     },
     // preset: 'ts-jest',
     // Indicates whether the coverage information should be collected while executing the test

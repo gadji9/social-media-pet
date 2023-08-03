@@ -2,7 +2,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { memo, useState } from 'react';
 import { ThemeSwitcher } from 'shared/ui/ThemeSwitcher';
 import { LangSwitcher } from 'shared/ui/LangSwitcher/LangSwitcher';
-import { Button, SizeButton, ThemeButton } from 'shared/ui/Button/Button';
+import { Button, ButtonSize, ThemeButton } from 'shared/ui/Button/Button';
 import cls from './Sidebar.module.scss';
 import { SidebarItemList } from '../model/items';
 import { SidebarItem } from './SidebarItem/SidebarItem';
@@ -30,7 +30,7 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
                 data-testid="sidebar-toogle"
                 onClick={onToggle}
                 theme={ThemeButton.BACKGROUND_INVERTED}
-                size={SizeButton.L}
+                size={ButtonSize.L}
                 square
             >
                 {collapsed ? '>' : '<'}

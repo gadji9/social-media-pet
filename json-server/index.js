@@ -8,11 +8,6 @@ const router = jsonServer.router(path.resolve(__dirname, 'db.json'));
 
 server.use(jsonServer.defaults({}));
 server.use(jsonServer.bodyParser);
-server.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', 'http://localhost:3000');
-    res.header('Access-Control-Allow-Headers', '*');
-    next();
-});
 
 // Нужно для небольшой задержки, чтобы запрос проходил не мгновенно, имитация реального апи
 server.use(async (req, res, next) => {
@@ -26,9 +21,7 @@ server.use(async (req, res, next) => {
 server.post('/login', (req, res) => {
     try {
         const { username, password } = req.body;
-        const db = JSON.parse(
-            fs.readFileSync(path.resolve(__dirname, 'db.json'), 'UTF-8'),
-        );
+        const db = JSON.parse(fs.readFileSync(path.resolve(__dirname, 'db.json'), 'UTF-8'));
         const { users = [] } = db;
 
         const userFromBd = users.find(

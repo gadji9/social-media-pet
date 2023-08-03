@@ -1,13 +1,13 @@
-import { useTheme } from 'app/providers/ThemeProvider';
 import React, {
     FunctionComponent,
+    MutableRefObject,
     ReactNode,
     useCallback,
     useEffect,
     useRef,
     useState,
 } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import Portal from '../Portal/Portal';
 import cls from './Modal.module.scss';
 
@@ -35,7 +35,9 @@ const Modal: FunctionComponent<IModalProps> = ({
         }
     }, [isOpen]);
 
-    const timerRef = useRef<ReturnType<typeof setTimeout>>();
+    const timerRef = useRef() as MutableRefObject<
+        ReturnType<typeof setTimeout>
+    >;
 
     const closeHandler = useCallback(() => {
         if (onClose) {
@@ -47,7 +49,7 @@ const Modal: FunctionComponent<IModalProps> = ({
         }
     }, [onClose]);
 
-    const mods = {
+    const mods: Mods = {
         [cls.opened]: isOpen,
         [cls.closing]: isClosing,
     };

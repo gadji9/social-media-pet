@@ -17,5 +17,6 @@
   "Форма авторизации": "Authorization",
   "Неверное имя пользователя или пароль": "User with such email/password not found",
   "Выйти": "Logout",
-  "Профиль": "Profile"
+  "Профиль": "Profile",
+  "Редактировать": "edit"
 }

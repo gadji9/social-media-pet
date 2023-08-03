@@ -30,7 +30,10 @@ export const LogedIn: Story = {
         ThemeDecorator(Theme.DARK),
         StoreDecorator({
             user: {
-                authData: {},
+                authData: {
+                    id: '1',
+                    username: 'admin',
+                },
             },
         }),
     ],

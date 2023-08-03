@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Theme } from 'app/providers/ThemeProvider';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 
-import { Button, SizeButton, ThemeButton } from './Button';
+import { Button, ButtonSize, ThemeButton } from './Button';
 
 const meta = {
     title: 'shared/Button',
@@ -47,7 +47,7 @@ export const BackgroundM: Story = {};
 BackgroundM.args = {
     children: 'Text',
     theme: ThemeButton.BACKGROUND,
-    size: SizeButton.M,
+    size: ButtonSize.M,
 };
 BackgroundM.decorators = [ThemeDecorator(Theme.DARK)];
 
@@ -55,7 +55,7 @@ export const BackgroundInvertedM: Story = {};
 BackgroundInvertedM.args = {
     children: 'Text',
     theme: ThemeButton.BACKGROUND_INVERTED,
-    size: SizeButton.M,
+    size: ButtonSize.M,
 };
 BackgroundInvertedM.decorators = [ThemeDecorator(Theme.DARK)];
 
@@ -64,14 +64,14 @@ SquareM.args = {
     children: 'Text',
     theme: ThemeButton.BACKGROUND_INVERTED,
     square: true,
-    size: SizeButton.M,
+    size: ButtonSize.M,
 };
 
 export const BackgroundL: Story = {};
 BackgroundL.args = {
     children: 'Text',
     theme: ThemeButton.BACKGROUND,
-    size: SizeButton.L,
+    size: ButtonSize.L,
 };
 BackgroundL.decorators = [ThemeDecorator(Theme.DARK)];
 
@@ -79,7 +79,7 @@ export const BackgroundInvertedL: Story = {};
 BackgroundInvertedL.args = {
     children: 'Text',
     theme: ThemeButton.BACKGROUND_INVERTED,
-    size: SizeButton.L,
+    size: ButtonSize.L,
 };
 BackgroundInvertedL.decorators = [ThemeDecorator(Theme.DARK)];
 
@@ -88,7 +88,7 @@ SquareL.args = {
     children: 'Text',
     theme: ThemeButton.BACKGROUND_INVERTED,
     square: true,
-    size: SizeButton.L,
+    size: ButtonSize.L,
 };
 SquareL.decorators = [ThemeDecorator(Theme.DARK)];
 
@@ -96,7 +96,7 @@ export const BackgroundXL: Story = {};
 BackgroundXL.args = {
     children: 'Text',
     theme: ThemeButton.BACKGROUND,
-    size: SizeButton.XL,
+    size: ButtonSize.XL,
 };
 BackgroundXL.decorators = [ThemeDecorator(Theme.DARK)];
 
@@ -104,7 +104,7 @@ export const BackgroundInvertedXL: Story = {};
 BackgroundInvertedXL.args = {
     children: 'Text',
     theme: ThemeButton.BACKGROUND_INVERTED,
-    size: SizeButton.XL,
+    size: ButtonSize.XL,
 };
 BackgroundInvertedXL.decorators = [ThemeDecorator(Theme.DARK)];
 
@@ -113,7 +113,7 @@ SquareXL.args = {
     children: 'Text',
     theme: ThemeButton.BACKGROUND_INVERTED,
     square: true,
-    size: SizeButton.XL,
+    size: ButtonSize.XL,
 };
 SquareXL.decorators = [ThemeDecorator(Theme.DARK)];
 

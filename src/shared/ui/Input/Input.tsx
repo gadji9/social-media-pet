@@ -37,7 +37,7 @@ export const Input: FunctionComponent<IInputProps> = memo(
 
         useEffect(() => {
             if (autoFocus) {
-                inputRef.current.focus();
+                inputRef.current?.focus();
                 setIsFocused(true);
             }
         }, [autoFocus]);
@@ -74,6 +74,7 @@ export const Input: FunctionComponent<IInputProps> = memo(
                         onFocus={onFocus}
                         onBlur={onBlur}
                         onSelect={onSelect}
+                        value={value}
                     />
                     {isFocused && (
                         <span
