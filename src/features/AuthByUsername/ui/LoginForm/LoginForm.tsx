@@ -56,7 +56,7 @@ export const LoginForm: FunctionComponent<ILoginFormProps> = ({
         [dispatch],
     );
 
-    const onLoginclick = useCallback(async () => {
+    const onLoginClick = useCallback(async () => {
         const result = await dispatch(loginByUsername({ username, password }));
 
         if (result.meta.requestStatus === 'fulfilled') {
@@ -93,7 +93,7 @@ export const LoginForm: FunctionComponent<ILoginFormProps> = ({
                 <Button
                     className={cls.loginBtn}
                     theme={ThemeButton.OUTLINE}
-                    onClick={onLoginclick}
+                    onClick={onLoginClick}
                     disabled={isLoading}
                 >
                     {t('Войти')}

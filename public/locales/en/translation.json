@@ -18,5 +18,8 @@
   "Неверное имя пользователя или пароль": "User with such email/password not found",
   "Выйти": "Logout",
   "Профиль": "Profile",
-  "Редактировать": "edit"
+  "Редактировать": "edit",
+  "Ваша валюта": "Your currency",
+  "Ваша страна": "Your contry",
+  "Не указано": "Not specified"
 }
