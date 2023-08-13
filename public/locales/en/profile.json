@@ -3,6 +3,19 @@
     "Редактировать": "edit",
     "Ваше имя": "Your name",
     "Ваша фамилия": "Your lastname",
+    "Ваша валюта": "Your currency",
+    "Ваша страна": "Your contry",
+    "Ваш город": "Your city",
+    "Ваше имя пользователя": "Your username",
+    "Ваш аватар": "Your avatar",
+    "Ваш возраст": "Your age",
     "Отменить": "Cancel",
-    "Сохранить": "Save"
+    "Сохранить": "Save",
+    "Не указано": "Not specified",
+    "Серверная ошибка": "Server error",
+    "Некорректный возраст": "Incorrect age",
+    "Некорректная страна": "Incorrect country",
+    "Некорректные имя фамилия": "Incorrect fullname",
+    "Некорректный юзернейм": "Incorrect username",
+    "Что-то пошло не так": "Something went wrong"
 }

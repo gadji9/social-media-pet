@@ -1,5 +1,5 @@
-import webpack, { DefinePlugin, RuleSetRule } from 'webpack';
 import path from 'path';
+import webpack, { DefinePlugin, RuleSetRule } from 'webpack';
 import { BuildPaths } from '../build/types/config';
 import { buildCssLoader } from '../build/loaders/buildCssLoaders';
 
@@ -10,8 +10,14 @@ export default ({ config }: { config: webpack.Configuration }) => {
         entry: '',
         src: path.resolve(__dirname, '..', '..', 'src'),
     };
-    config.resolve!.modules = [paths.src, 'node_modules'];
-    config.resolve!.extensions?.push('.ts', '.tsx');
+    config.resolve = {
+        ...config.resolve,
+        extensions: ['.tsx', '.ts', '.js'],
+        preferAbsolute: true,
+        modules: [paths.src, 'node_modules'],
+        mainFiles: ['index'],
+        alias: {},
+    };
 
     // eslint-disable-next-line no-param-reassign
     // @ts-ignore
@@ -32,6 +38,7 @@ export default ({ config }: { config: webpack.Configuration }) => {
         new DefinePlugin({
             __IS_DEV__: true,
             __API__: '',
+            __PROJECT__: 'storybook',
         }),
     );
 

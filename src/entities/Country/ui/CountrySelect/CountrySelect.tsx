@@ -1,4 +1,4 @@
-import { Country } from 'entities/Country/model/types/country';
+import { Country } from 'entities/Country';
 import { FunctionComponent, memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Select } from 'shared/ui/Select/Select';
@@ -19,7 +19,7 @@ const options = [
 
 export const CountrySelect: FunctionComponent<ICountrySelectProps> = memo(
     ({ readOnly, value, onChange }) => {
-        const { t } = useTranslation();
+        const { t } = useTranslation('profile');
 
         const onChangeHandler = useCallback((value: string) => {
             onChange?.(value as Country);

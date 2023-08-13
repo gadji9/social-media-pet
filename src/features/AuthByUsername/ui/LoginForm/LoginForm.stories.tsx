@@ -1,5 +1,6 @@
-import { Meta, StoryObj } from '@storybook/react';
-import { StoreDecorator } from '../../../../shared/config/storybook/StoreDecorator/StoreDecorator';
+import { Meta, StoryFn, StoryObj } from '@storybook/react';
+import { StoreProvider } from 'app/providers/StoreProvider';
+import { loginReducer } from 'features/AuthByUsername';
 import { LoginForm } from './LoginForm';
 
 const meta = {
@@ -12,4 +13,10 @@ type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {};
 Primary.args = {};
-Primary.decorators = [StoreDecorator({})];
+Primary.decorators = [
+    (Story: StoryFn) => (
+        <StoreProvider asyncReducers={{ login: loginReducer }}>
+            <Story />
+        </StoreProvider>
+    ),
+];

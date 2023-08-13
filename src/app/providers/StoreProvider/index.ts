@@ -1,5 +1,6 @@
 export * from './ui/StoreProvider';
-export { createReduxStore, AppDispatch } from './storeConfig/store';
+export type { AppDispatch } from './storeConfig/store';
+export { createReduxStore } from './storeConfig/store';
 
 export type {
     StateSchema,

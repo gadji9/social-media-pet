@@ -6,9 +6,9 @@ import {
     Reducer,
     ReducersMapObject,
 } from '@reduxjs/toolkit';
-import { LoginSchema } from 'features/AuthByUsername/model/types/loginSchema';
+import type { LoginSchema } from 'features/AuthByUsername';
 import type { UserSchema } from 'entities/User';
-import { ProfileSchema } from 'entities/Profile';
+import type { ProfileSchema } from 'entities/Profile';
 import { AxiosInstance } from 'axios';
 import { NavigateOptions, To } from 'react-router-dom';
 

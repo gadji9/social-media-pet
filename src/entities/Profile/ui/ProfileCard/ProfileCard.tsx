@@ -7,7 +7,6 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Input } from 'shared/ui/Input/Input';
 import { Loader } from 'shared/ui/Loader/Loader';
-import { Select } from 'shared/ui/Select/Select';
 import { Text, TextAlign, TextTheme } from 'shared/ui/Text/Text';
 
 import cls from './ProfileCard.module.scss';
@@ -116,7 +115,7 @@ export const ProfileCard: FunctionComponent<IProfileCardProps> = ({
                 <Input
                     className={cls.input}
                     value={data?.avatar}
-                    placeholder={t('Аватар')}
+                    placeholder={t('Ваш аватар')}
                     onChange={onChangeAvatar}
                     readOnly={readOnly}
                 />
