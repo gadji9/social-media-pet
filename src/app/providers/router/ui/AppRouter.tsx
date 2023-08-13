@@ -1,38 +1,32 @@
-import { getUserAuthState } from 'entities/User';
-import React, { Suspense, useMemo } from 'react';
-import { useSelector } from 'react-redux';
+import { Suspense, useCallback } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { PageLoader } from 'shared/ui/PageLoader/PageLoader';
-import { routeConfig } from '../routeConfig/routeConfig';
+import { AppRoutesProps, routeConfig } from '../routeConfig/routeConfig';
+import { RequireAuth } from './RequireAuth';
 
 const AppRouter = () => {
-    const isAuth = useSelector(getUserAuthState);
+    const renderWithWrapper = useCallback((route: AppRoutesProps) => {
+        const element = (
+            <Suspense fallback={<PageLoader />}>
+                <div className="page-wrapper">{route.element}</div>
+            </Suspense>
+        );
+        return (
+            <Route
+                key={route.path}
+                path={route.path}
+                element={
+                    route.authOnly ? (
+                        <RequireAuth>{element}</RequireAuth>
+                    ) : (
+                        element
+                    )
+                }
+            />
+        );
+    }, []);
 
-    const routes = useMemo(() => {
-        return Object.values(routeConfig).filter((route) => {
-            if (route.authOnly && !isAuth) {
-                return false;
-            }
-
-            return true;
-        });
-    }, [isAuth]);
-
-    return (
-        <Routes>
-            {Object.values(routes).map(({ element, path }) => (
-                <Route
-                    key={path}
-                    path={path}
-                    element={(
-                        <Suspense fallback={<PageLoader />}>
-                            <div className="page-wrapper">{element}</div>
-                        </Suspense>
-                    )}
-                />
-            ))}
-        </Routes>
-    );
+    return <Routes>{Object.values(routeConfig).map(renderWithWrapper)}</Routes>;
 };
 
 export default AppRouter;
