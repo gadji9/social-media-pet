@@ -1,9 +1,11 @@
-import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
+import { Theme } from 'app/providers/ThemeProvider';
+
+import React from 'react';
 
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { Theme } from 'app/providers/ThemeProvider';
-import { Text, TextTheme } from './Text';
+
+import { Text, TextSize, TextTheme } from './Text';
 
 const meta = {
     title: 'widgets/ErrorPage',
@@ -69,3 +71,18 @@ Primary.args = {
     text: 'Text',
 };
 onlyTextDark.decorators = [ThemeDecorator(Theme.DARK)];
+
+export const SizeM: Story = {
+    render: () => <Text />,
+};
+Primary.args = {
+    text: 'Text',
+    size: TextSize.M,
+};
+export const SizeL: Story = {
+    render: () => <Text />,
+};
+Primary.args = {
+    text: 'Text',
+    size: TextSize.L,
+};

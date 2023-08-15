@@ -1,6 +1,8 @@
-import { Country } from 'entities/Country';
 import { FunctionComponent, memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
+
+import { Country } from 'entities/Country';
+
 import { Select } from 'shared/ui/Select/Select';
 
 interface ICountrySelectProps {

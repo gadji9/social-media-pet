@@ -1,4 +1,7 @@
 import { Meta, StoryObj } from '@storybook/react';
+
+import { ArticleBlockType } from 'entities/Article/model/types/article';
+
 import { ArticleBlockCode } from './ArticleBlockCode';
 
 const meta = {
@@ -10,5 +13,12 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-export const Normal: Story = {};
-Normal.args = {};
+export const Normal: Story = {
+    args: {
+        block: {
+            code: 'Hey',
+            id: '1',
+            type: ArticleBlockType.CODE,
+        },
+    },
+};

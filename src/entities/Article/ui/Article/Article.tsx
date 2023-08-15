@@ -1,21 +1,35 @@
-import { FunctionComponent, memo, useEffect } from 'react';
+import { FunctionComponent, memo, useCallback, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { classNames } from 'shared/lib/classNames/classNames';
+import { useSelector } from 'react-redux';
+
+import {
+    getArticleData,
+    getArticleError,
+    getArticleIsLoading,
+} from 'entities/Article/model/selectors/article';
+import { fetchArticleById } from 'entities/Article/model/services/fetchArticleById';
+import { articleReducer } from 'entities/Article/model/slice/articleSlice';
+import {
+    ArticleBlock,
+    ArticleBlockType,
+} from 'entities/Article/model/types/article';
+
+import CalendarIcon from 'shared/assets/icons/calendar.svg';
+import EyeIcon from 'shared/assets/icons/eye.svg';
 import {
     DynamicModuleLoader,
     ReducersList,
 } from 'shared/lib/DynamicModuleLoader/DynamicModuleLoader';
-import { articleReducer } from 'entities/Article/model/slice/articleSlice';
+import { classNames } from 'shared/lib/classNames/classNames';
 import { useAppDispatch } from 'shared/lib/useAppDispatch/useAppDispatch';
-import { Text, TextAlign } from 'shared/ui/Text/Text';
+import { Avatar } from 'shared/ui/Avatar/Avatar';
+import { Icon } from 'shared/ui/Icon/Icon';
 import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
-import { fetchArticleById } from 'entities/Article/model/services/fetchArticleById';
+import { Text, TextAlign, TextSize } from 'shared/ui/Text/Text';
 
-import { useSelector } from 'react-redux';
-import {
-    getArticleData,
-    getArticleError,
-} from 'entities/Article/model/selectors/article';
+import { ArticleBlockCode } from '../ArticleBlockCode/ArticleBlockCode';
+import { ArticleBlockImage } from '../ArticleBlockImage/ArticleBlockImage';
+import { ArticleBlockText } from '../ArticleBlockText/ArticleBlockText';
 import cls from './Article.module.scss';
 
 interface IArticleProps {
@@ -32,10 +46,40 @@ export const Article: FunctionComponent<IArticleProps> = memo(
         const dispatch = useAppDispatch();
 
         const article = useSelector(getArticleData);
-        // const isLoading = useSelector(getArticleIsLoading);
-        const isLoading = true;
+        const isLoading = useSelector(getArticleIsLoading);
 
         const error = useSelector(getArticleError);
+
+        const renderBlock = useCallback((block: ArticleBlock) => {
+            switch (block.type) {
+            case ArticleBlockType.CODE:
+                return (
+                    <ArticleBlockCode
+                        key={block.id}
+                        block={block}
+                        className={cls.block}
+                    />
+                );
+            case ArticleBlockType.IMAGE:
+                return (
+                    <ArticleBlockImage
+                        key={block.id}
+                        block={block}
+                        className={cls.block}
+                    />
+                );
+            case ArticleBlockType.TEXT:
+                return (
+                    <ArticleBlockText
+                        key={block.id}
+                        block={block}
+                        className={cls.block}
+                    />
+                );
+            default:
+                return null;
+            }
+        }, []);
 
         const { t } = useTranslation('articleDetails');
 
@@ -47,7 +91,7 @@ export const Article: FunctionComponent<IArticleProps> = memo(
 
         if (isLoading) {
             content = (
-                <div>
+                <>
                     <Skeleton
                         className={cls.avatar}
                         width={200}
@@ -70,12 +114,39 @@ export const Article: FunctionComponent<IArticleProps> = memo(
                         width="100%"
                         height={200}
                     />
-                </div>
+                </>
             );
-        }
-
-        if (error) {
+        } else if (error) {
             content = <Text align={TextAlign.CENTER} text={t('Ошибка')} />;
+        } else {
+            content = (
+                <>
+                    <div className={cls.avatarWrapper}>
+                        <Avatar
+                            size={200}
+                            src={article?.img}
+                            className={cls.avatar}
+                        />
+                    </div>
+
+                    <Text
+                        className={cls.title}
+                        title={article?.title}
+                        text={article?.subtitle}
+                        size={TextSize.L}
+                    />
+                    <div className={cls.articleInfo}>
+                        <Icon Svg={EyeIcon} className={cls.icon} />
+                        <Text text={article?.views?.toString()} />
+                    </div>
+                    <div className={cls.articleInfo}>
+                        <Icon Svg={CalendarIcon} className={cls.icon} />
+
+                        <Text text={article?.createdAt} />
+                    </div>
+                    {article?.blocks.map(renderBlock)}
+                </>
+            );
         }
 
         return (

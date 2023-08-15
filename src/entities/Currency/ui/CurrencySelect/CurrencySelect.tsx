@@ -1,6 +1,8 @@
-import { Currency } from 'entities/Currency';
 import { FunctionComponent, memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
+
+import { Currency } from 'entities/Currency';
+
 import { Select } from 'shared/ui/Select/Select';
 
 interface ICurrencySelectProps {

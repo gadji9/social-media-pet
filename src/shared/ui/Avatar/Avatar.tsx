@@ -1,5 +1,7 @@
 import { FunctionComponent, useMemo } from 'react';
+
 import { classNames } from 'shared/lib/classNames/classNames';
+
 import cls from './Avatar.module.scss';
 
 interface IAvatarProps {
@@ -27,6 +29,7 @@ export const Avatar: FunctionComponent<IAvatarProps> = ({
     return (
         <img
             className={classNames(cls.Avatar, {}, [className])}
+            style={styles}
             src={src}
             alt={alt}
         />
