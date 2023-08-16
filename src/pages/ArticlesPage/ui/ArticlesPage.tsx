@@ -1,5 +1,9 @@
 import { FunctionComponent, memo } from 'react';
+
+import { Article, ArticleList } from 'entities/Article';
+
 import { classNames } from 'shared/lib/classNames/classNames';
+
 import cls from './ArticlesPage.module.scss';
 
 interface IArticlesPageProps {
@@ -8,7 +12,7 @@ interface IArticlesPageProps {
 const ArticlesPage: FunctionComponent<IArticlesPageProps> = ({ className }) => {
     return (
         <div className={classNames(cls.index, {}, [className])}>
-            ArticlesPage
+            <ArticleList articles={[]} />
         </div>
     );
 };

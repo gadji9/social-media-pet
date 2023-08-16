@@ -1,7 +1,9 @@
+import { RoutePath } from 'app/providers/router/routeConfig/routeConfig';
+
 import { FunctionComponent, memo, useCallback, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { Navigate, useNavigate, useParams } from 'react-router-dom';
 
 import { AddCommentForm } from 'features/addCommentForm';
 
@@ -14,6 +16,7 @@ import {
 } from 'shared/lib/DynamicModuleLoader/DynamicModuleLoader';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useAppDispatch } from 'shared/lib/useAppDispatch/useAppDispatch';
+import { Button, ThemeButton } from 'shared/ui/Button/Button';
 import { Text } from 'shared/ui/Text/Text';
 
 import { getArticleCommentsIsLoading } from '../model/selectors/comments';
@@ -38,11 +41,15 @@ const ArticleDetailsPage: FunctionComponent<IArticleDetailsPageProps> = ({
 }) => {
     const dispatch = useAppDispatch();
     const { t } = useTranslation('articleDetails');
-
+    const navigate = useNavigate();
     const { id } = useParams<{ id?: string }>();
 
     const comments = useSelector(getArticleComments.selectAll);
     const commentsIsLoading = useSelector(getArticleCommentsIsLoading);
+
+    const onBackToList = useCallback(() => {
+        navigate(RoutePath.articles);
+    }, [navigate]);
 
     const onSendComment = useCallback(
         (text: string) => {
@@ -64,6 +71,9 @@ const ArticleDetailsPage: FunctionComponent<IArticleDetailsPageProps> = ({
             <div
                 className={classNames(cls.ArticleDetailsPage, {}, [className])}
             >
+                <Button theme={ThemeButton.OUTLINE} onClick={onBackToList}>
+                    {t('Назад к списку')}
+                </Button>
                 <ArticleDetails id={id} />
                 <Text title={t('Комментарии')} className={cls.commentTitle} />
                 <AddCommentForm onSendComment={onSendComment} />
