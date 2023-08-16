@@ -1,12 +1,16 @@
-import { Suspense, useEffect, useState } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
 import { AppRouter } from 'app/providers/router';
+
+import { Suspense, useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
+
 import { Navbar } from 'widgets/Navbar';
 import { Sidebar } from 'widgets/Sidebar';
+
 import { userActions } from 'entities/User';
-import { useAppDispatch } from 'shared/lib/useAppDispatch/useAppDispatch';
-import { useSelector } from 'react-redux';
 import { getUserInited } from 'entities/User/model/selectors/getUserInited/getUserInited';
+
+import { classNames } from 'shared/lib/classNames/classNames';
+import { useAppDispatch } from 'shared/lib/useAppDispatch/useAppDispatch';
 
 function App() {
     const dispatch = useAppDispatch();

@@ -1,6 +1,8 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ThunkConfig } from 'app/providers/StoreProvider';
+
 import { User, userActions } from 'entities/User';
+
 import { USER_LOCASTORAGE_KEY } from 'shared/consts/localStorage';
 
 interface LoginByUsernameProps {
@@ -28,7 +30,7 @@ export const loginByUsername = createAsyncThunk<
         );
         thunkApi.dispatch(userActions.setAuthData(response.data));
 
-        thunkApi.extra?.navigate?.('/profile');
+        thunkApi.extra?.navigate?.(`/profile/${response.data.id}`);
         return response.data;
     } catch (error: any) {
         return thunkApi.rejectWithValue('error');

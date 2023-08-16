@@ -17,11 +17,9 @@ export const Avatar: FunctionComponent<IAvatarProps> = ({
     size,
     alt,
 }) => {
-    const mods = {};
-
     const styles = useMemo(() => {
         return {
-            width: size || 10,
+            width: size || 100,
             height: size || 100,
         };
     }, [size]);
