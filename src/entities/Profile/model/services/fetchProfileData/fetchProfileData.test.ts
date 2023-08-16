@@ -1,6 +1,8 @@
 import { Country } from 'entities/Country';
 import { Currency } from 'entities/Currency';
+
 import { TestAsyncFunc } from 'shared/lib/tests/testAyncFunt/testAsyncFunc';
+
 import { fetchProfileData } from './fetchProfileData';
 
 const data = {
@@ -17,7 +19,7 @@ describe('fetchProfileData', () => {
     test('success', async () => {
         const thunk = new TestAsyncFunc(fetchProfileData);
         thunk.api.get.mockReturnValue(Promise.resolve({ data }));
-        const result = await thunk.callTunk();
+        const result = await thunk.callTunk('1');
 
         expect(thunk.api.get).toHaveBeenCalled();
         expect(result.meta.requestStatus).toBe('fulfilled');
@@ -28,7 +30,7 @@ describe('fetchProfileData', () => {
         const thunk = new TestAsyncFunc(fetchProfileData);
         thunk.api.get.mockReturnValue(Promise.resolve({ status: 403 }));
 
-        const result = await thunk.callTunk();
+        const result = await thunk.callTunk('1');
 
         expect(result.meta.requestStatus).toBe('rejected');
     });

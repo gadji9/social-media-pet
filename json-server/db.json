@@ -102,6 +102,42 @@
       "text": "some comment 3",
       "articleId": "1",
       "userId": "1"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "aswdawsdw",
+      "id": "UFNESnX"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "aswdawsdw",
+      "id": "JkiLx8r"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "aswdawsdw",
+      "id": "5c7fG6t"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "aswdawsdw",
+      "id": "aY62qaq"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "aswdawsdw",
+      "id": "P9Payoj"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "Новый ком",
+      "id": "-1EvMQO"
     }
   ],
   "users": [
@@ -110,24 +146,38 @@
       "username": "admin",
       "password": "123",
       "role": "ADMIN",
-      "avatar": "https://ichef.bbci.co.uk/news/976/cpsprodpb/2B87/production/_90934111_1-1.jpg.webp"
+      "avatar": "https://cdn.vectorstock.com/i/1000x1000/75/40/hooded-skull-hacker-logo-concept-vector-44777540.webp"
     },
     {
       "id": "2",
       "username": "user",
       "password": "123",
       "role": "USER",
-      "avatar": "https://ichef.bbci.co.uk/news/976/cpsprodpb/2B87/production/_90934111_1-1.jpg.webp"
+      "avatar": "https://cdn.vectorstock.com/i/1000x1000/75/40/hooded-skull-hacker-logo-concept-vector-44777540.webp"
     }
   ],
-  "profile": {
-    "first": "jgh",
-    "lastname": "asf",
-    "age": 465,
-    "currency": "RUB",
-    "country": "Belarus",
-    "city": "Moscow",
-    "username": "admin213",
-    "avatar": "https://ichef.bbci.co.uk/news/976/cpsprodpb/2B87/production/_90934111_1-1.jpg.webp"
-  }
+  "profile": [
+    {
+      "id": "1",
+      "first": "jgh",
+      "lastname": "asf",
+      "age": 465,
+      "currency": "RUB",
+      "country": "Belarus",
+      "city": "Moscow",
+      "username": "admin213",
+      "avatar": "https://cdn.vectorstock.com/i/1000x1000/75/40/hooded-skull-hacker-logo-concept-vector-44777540.webp"
+    },
+    {
+      "id": "2",
+      "first": "jgh",
+      "lastname": "asf",
+      "age": 465,
+      "currency": "RUB",
+      "country": "Russia",
+      "city": "Moscow",
+      "username": "USER",
+      "avatar": "https://vpnoverview.com/wp-content/uploads/what-is-a-hacker-what-is-hacking-featured-1140x570.png"
+    }
+  ]
 }

@@ -23,7 +23,6 @@ export const fetchCommentsByArticleId = createAsyncThunk<
                     },
                 },
             );
-            console.log('res', response.data);
             if (!response.data) {
                 throw new Error();
             }

@@ -1,10 +1,13 @@
 import { Country } from 'entities/Country';
 import { Currency } from 'entities/Currency';
+
 import { TestAsyncFunc } from 'shared/lib/tests/testAyncFunt/testAsyncFunc';
-import { updateProfileData } from './updateProfileData';
+
 import { ValidateProfileError } from '../../types/profile';
+import { updateProfileData } from './updateProfileData';
 
 const data = {
+    id: '1',
     username: 'gadj',
     first: 'me',
     lastname: 'him',

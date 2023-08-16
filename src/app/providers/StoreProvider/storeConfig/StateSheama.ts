@@ -13,10 +13,13 @@ import { NavigateOptions, To } from 'react-router-dom';
 import { ArticleDetailsCommentsSchema } from 'pages/ArticleDetailsPage';
 
 import type { LoginSchema } from 'features/AuthByUsername';
+import { AddCommentFormSchema } from 'features/addCommentForm';
 
 import { ArticleSchema } from 'entities/Article';
 import type { ProfileSchema } from 'entities/Profile';
 import type { UserSchema } from 'entities/User';
+
+import { AppDispatch } from './store';
 
 export interface StateSchema {
     user: UserSchema;
@@ -24,6 +27,7 @@ export interface StateSchema {
     profile?: ProfileSchema;
     article?: ArticleSchema;
     articleComments?: ArticleDetailsCommentsSchema;
+    addCommentForm?: AddCommentFormSchema;
 }
 
 export type StateSchemaKey = keyof StateSchema;
@@ -50,6 +54,6 @@ export interface ThunkExtraArg {
 export interface ThunkConfig<rejectType> {
     rejectValue: rejectType;
     extra: ThunkExtraArg;
-    dispatch: Dispatch;
+    dispatch: AppDispatch;
     state: StateSchema;
 }
