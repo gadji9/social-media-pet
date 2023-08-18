@@ -4,7 +4,12 @@ module.exports = {
         es2021: true,
         jest: true,
     },
-    extends: ['plugin:react/recommended', 'airbnb', 'plugin:i18next/recommended', 'plugin:storybook/recommended'],
+    extends: [
+        'plugin:react/recommended',
+        'airbnb',
+        'plugin:i18next/recommended',
+        'plugin:storybook/recommended',
+    ],
     parser: '@typescript-eslint/parser',
     parserOptions: {
         ecmaFeatures: {
@@ -44,6 +49,7 @@ module.exports = {
         'react/prop-types': 0,
         'object-curly-newline': 0,
         'operator-linebreak': 0,
+        'react/no-array-index-key': 0,
     },
     globals: {
         __IS_DEV__: true,

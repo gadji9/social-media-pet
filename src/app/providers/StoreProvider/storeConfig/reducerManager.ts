@@ -4,6 +4,7 @@ import {
     Reducer,
     ReducersMapObject,
 } from '@reduxjs/toolkit';
+
 import { ReducerManager, StateSchema, StateSchemaKey } from './StateSheama';
 
 export function createReducerManager(
@@ -17,7 +18,6 @@ export function createReducerManager(
 
     return {
         getReducerMap: () => reducers,
-
         reduce: (state: StateSchema, action: AnyAction) => {
             if (keysToRemove.length > 0) {
                 state = { ...state };

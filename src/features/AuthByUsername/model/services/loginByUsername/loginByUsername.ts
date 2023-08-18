@@ -30,7 +30,6 @@ export const loginByUsername = createAsyncThunk<
         );
         thunkApi.dispatch(userActions.setAuthData(response.data));
 
-        thunkApi.extra?.navigate?.(`/profile/${response.data.id}`);
         return response.data;
     } catch (error: any) {
         return thunkApi.rejectWithValue('error');

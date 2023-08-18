@@ -17,6 +17,7 @@ import {
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useAppDispatch } from 'shared/lib/useAppDispatch/useAppDispatch';
 import { Button, ThemeButton } from 'shared/ui/Button/Button';
+import { Page } from 'shared/ui/Page/Page';
 import { Text } from 'shared/ui/Text/Text';
 
 import { getArticleCommentsIsLoading } from '../model/selectors/comments';
@@ -68,7 +69,7 @@ const ArticleDetailsPage: FunctionComponent<IArticleDetailsPageProps> = ({
 
     return (
         <DynamicModuleLoader reducers={reducers}>
-            <div
+            <Page
                 className={classNames(cls.ArticleDetailsPage, {}, [className])}
             >
                 <Button theme={ThemeButton.OUTLINE} onClick={onBackToList}>
@@ -81,7 +82,7 @@ const ArticleDetailsPage: FunctionComponent<IArticleDetailsPageProps> = ({
                     isLoading={commentsIsLoading}
                     comments={comments}
                 />
-            </div>
+            </Page>
         </DynamicModuleLoader>
     );
 };

@@ -20,7 +20,7 @@ const getSkeletons = (view: ArticleView) => {
         .map((item, index) => (
             <ArticleListItemSkeleton
                 className={cls.card}
-                key={Date.now()}
+                key={index}
                 view={view}
             />
         ));
@@ -32,19 +32,6 @@ export const ArticleList: FunctionComponent<IArticleListProps> = ({
     isLoading,
     view = ArticleView.SMALL,
 }) => {
-    if (isLoading) {
-        return (
-            <div
-                className={classNames(cls.ArticleList, {}, [
-                    className,
-                    cls[view],
-                ])}
-            >
-                {getSkeletons(view)}
-            </div>
-        );
-    }
-
     const renderArticle = (article: Article) => (
         <ArticleListItem key={article.id} article={article} view={view} />
     );
@@ -54,6 +41,7 @@ export const ArticleList: FunctionComponent<IArticleListProps> = ({
             className={classNames(cls.ArticleList, {}, [className, cls[view]])}
         >
             {articles.length > 0 ? articles.map(renderArticle) : null}
+            {isLoading && getSkeletons(view)}
         </div>
     );
 };

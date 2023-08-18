@@ -1,0 +1,8 @@
+.ArticleViewSelector {
+    display: flex;
+    gap: 20px;
+}
+
+.selected {
+    fill: var(--secondary-color);
+}

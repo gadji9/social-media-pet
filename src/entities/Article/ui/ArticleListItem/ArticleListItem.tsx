@@ -91,7 +91,6 @@ export const ArticleListItem: FunctionComponent<IArticleListItemProps> = ({
                         />
                         <Icon Svg={EyeIcon} />
                     </div>
-                    {article.title}
                 </Card>
             </article>
         );

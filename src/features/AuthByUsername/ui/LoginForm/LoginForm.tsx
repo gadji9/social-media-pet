@@ -1,3 +1,7 @@
+import { FunctionComponent, SyntheticEvent, useCallback } from 'react';
+import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
+
 import { getLoginError } from 'features/AuthByUsername/model/selectors/getLoginError/getLoginError';
 import { getLoginIsLoading } from 'features/AuthByUsername/model/selectors/getLoginIsLoading/getLoginIsLoading';
 import { getLoginPassword } from 'features/AuthByUsername/model/selectors/getLoginPassword/getLoginPassword';
@@ -7,14 +11,12 @@ import {
     loginActions,
     loginReducer,
 } from 'features/AuthByUsername/model/slice/loginSlice';
-import { FunctionComponent, useCallback } from 'react';
-import { useTranslation } from 'react-i18next';
-import { useSelector } from 'react-redux';
-import { classNames } from 'shared/lib/classNames/classNames';
+
 import {
     DynamicModuleLoader,
     ReducersList,
 } from 'shared/lib/DynamicModuleLoader/DynamicModuleLoader';
+import { classNames } from 'shared/lib/classNames/classNames';
 import { useAppDispatch } from 'shared/lib/useAppDispatch/useAppDispatch';
 import { Button, ThemeButton } from 'shared/ui/Button/Button';
 import { Input } from 'shared/ui/Input/Input';
@@ -56,17 +58,26 @@ export const LoginForm: FunctionComponent<ILoginFormProps> = ({
         [dispatch],
     );
 
-    const onLoginClick = useCallback(async () => {
-        const result = await dispatch(loginByUsername({ username, password }));
+    const onLoginClick = useCallback(
+        async (event: SyntheticEvent<Element>) => {
+            event.preventDefault();
+            const result = await dispatch(
+                loginByUsername({ username, password }),
+            );
 
-        if (result.meta.requestStatus === 'fulfilled') {
-            onSuccess();
-        }
-    }, [onSuccess, dispatch, username, password]);
+            if (result.meta.requestStatus === 'fulfilled') {
+                onSuccess();
+            }
+        },
+        [onSuccess, dispatch, username, password],
+    );
 
     return (
         <DynamicModuleLoader reducers={initialReducers}>
-            <div className={classNames(cls.LoginForm, {}, [className])}>
+            <form
+                className={classNames(cls.LoginForm, {}, [className])}
+                onSubmit={(e) => onLoginClick}
+            >
                 <Text title={t('Форма авторизации')} />
 
                 {error && (
@@ -95,10 +106,11 @@ export const LoginForm: FunctionComponent<ILoginFormProps> = ({
                     theme={ThemeButton.OUTLINE}
                     onClick={onLoginClick}
                     disabled={isLoading}
+                    type="submit"
                 >
                     {t('Войти')}
                 </Button>
-            </div>
+            </form>
         </DynamicModuleLoader>
     );
 };

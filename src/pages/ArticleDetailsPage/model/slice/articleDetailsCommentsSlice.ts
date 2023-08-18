@@ -38,7 +38,6 @@ const articleDetailsCommentsSlice = createSlice({
             fetchCommentsByArticleId.fulfilled,
             (state, action: PayloadAction<Comment[]>) => {
                 state.isLoading = false;
-                console.log('extra', action.payload);
                 commentsAdapter.setAll(state, action.payload);
             },
         );

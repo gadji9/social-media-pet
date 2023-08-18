@@ -1,4 +1,4 @@
-import { TestAsyncFunc } from 'shared/lib/tests/testAyncFunt/testAsyncFunc';
+import { TestAsyncThunk } from 'shared/lib/tests/testAsyncThunk/TestAsyncThunk';
 
 import { fetchArticleById } from './fetchArticleById';
 
@@ -38,9 +38,9 @@ const data = {
 
 describe('fetchArticleById', () => {
     test('success', async () => {
-        const thunk = new TestAsyncFunc(fetchArticleById);
+        const thunk = new TestAsyncThunk(fetchArticleById);
         thunk.api.get.mockReturnValue(Promise.resolve({ data }));
-        const result = await thunk.callTunk('1');
+        const result = await thunk.callThunk('1');
 
         expect(thunk.api.get).toHaveBeenCalled();
         expect(result.meta.requestStatus).toBe('fulfilled');
@@ -48,10 +48,10 @@ describe('fetchArticleById', () => {
     });
 
     test('error', async () => {
-        const thunk = new TestAsyncFunc(fetchArticleById);
+        const thunk = new TestAsyncThunk(fetchArticleById);
         thunk.api.get.mockReturnValue(Promise.resolve({ status: 403 }));
 
-        const result = await thunk.callTunk('1');
+        const result = await thunk.callThunk('1');
 
         expect(result.meta.requestStatus).toBe('rejected');
     });
