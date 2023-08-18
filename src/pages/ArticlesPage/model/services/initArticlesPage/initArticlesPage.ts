@@ -12,7 +12,6 @@ export const initArticlesPage = createAsyncThunk<
 >('articlesPage/fetchNextArticlesPage', async (_, thunkApi) => {
     const { getState, dispatch } = thunkApi;
     const inited = getArticlesPageInited(getState());
-    console.log(inited);
     if (!inited) {
         dispatch(articlesPageActions.initState());
         dispatch(

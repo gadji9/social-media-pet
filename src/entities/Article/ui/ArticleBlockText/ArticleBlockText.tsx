@@ -22,7 +22,7 @@ export const ArticleBlockText: FunctionComponent<IArticleBlockTextProps> = memo(
                 )}
                 {block.paragraphs.map((paragraph, index) => (
                     <Text
-                        key={block.id}
+                        key={paragraph}
                         text={paragraph}
                         className={cls.paragraph}
                     />

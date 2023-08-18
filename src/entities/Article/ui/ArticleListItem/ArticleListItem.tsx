@@ -6,7 +6,6 @@ import { useNavigate } from 'react-router-dom';
 
 import EyeIcon from 'shared/assets/icons/eye.svg';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { useHover } from 'shared/lib/hooks/useHover/useHover';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Button, ThemeButton } from 'shared/ui/Button/Button';
 import { Card } from 'shared/ui/Card/Card';

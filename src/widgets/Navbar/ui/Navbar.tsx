@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux';
 
 import { LoginModal } from 'features/AuthByUsername';
 
-import { getUserAuthState, userActions } from 'entities/User';
+import { userActions } from 'entities/User';
 
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useAppDispatch } from 'shared/lib/useAppDispatch/useAppDispatch';
