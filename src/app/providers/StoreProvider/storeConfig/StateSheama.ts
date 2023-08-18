@@ -14,6 +14,7 @@ import { ArticlesPageSchema } from 'pages/ArticlesPage';
 
 import type { LoginSchema } from 'features/AuthByUsername';
 import { AddCommentFormSchema } from 'features/addCommentForm';
+import { ScrollSaverSchema } from 'features/scrollSaver';
 
 import { ArticleSchema } from 'entities/Article';
 import type { ProfileSchema } from 'entities/Profile';
@@ -23,6 +24,7 @@ import { AppDispatch } from './store';
 
 export interface StateSchema {
     user: UserSchema;
+    scrollSaver: ScrollSaverSchema;
     login?: LoginSchema;
     profile?: ProfileSchema;
     article?: ArticleSchema;

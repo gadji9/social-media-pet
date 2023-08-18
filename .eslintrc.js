@@ -50,6 +50,7 @@ module.exports = {
         'object-curly-newline': 0,
         'operator-linebreak': 0,
         'react/no-array-index-key': 0,
+        'function-paren-newline': 0,
     },
     globals: {
         __IS_DEV__: true,

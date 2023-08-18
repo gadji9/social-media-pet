@@ -3,6 +3,8 @@ import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
+import { Page } from 'widgets/Page';
+
 import { Country } from 'entities/Country';
 import { Currency } from 'entities/Currency';
 import {
@@ -24,7 +26,6 @@ import {
 } from 'shared/lib/DynamicModuleLoader/DynamicModuleLoader';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useAppDispatch } from 'shared/lib/useAppDispatch/useAppDispatch';
-import { Page } from 'shared/ui/Page/Page';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';

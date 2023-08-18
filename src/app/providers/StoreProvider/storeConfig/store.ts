@@ -1,12 +1,15 @@
 import { configureStore, ReducersMapObject } from '@reduxjs/toolkit';
-import { userReducer } from 'entities/User';
-import { $api } from 'shared/api/api';
-import { NavigateOptions } from 'react-router';
-import { To } from 'react-router-dom';
 import { CombinedState, Reducer } from 'redux';
-import { createReducerManager } from './reducerManager';
+
+import { scrollSaverReducer } from 'features/scrollSaver';
+
+import { userReducer } from 'entities/User';
+
+import { $api } from 'shared/api/api';
+
 import { StateSchema } from '..';
 import { ThunkExtraArg } from './StateSheama';
+import { createReducerManager } from './reducerManager';
 
 export function createReduxStore(
     initialState?: StateSchema,
@@ -15,6 +18,7 @@ export function createReduxStore(
     const rootReducers: ReducersMapObject<StateSchema> = {
         ...asyncReducers,
         user: userReducer,
+        scrollSaver: scrollSaverReducer,
     };
 
     const reducerManager = createReducerManager(rootReducers);

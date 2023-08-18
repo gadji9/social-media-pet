@@ -1,6 +1,8 @@
 import { FunctionComponent, memo, useCallback, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 
+import { Page } from 'widgets/Page';
+
 import {
     ArticleList,
     ArticleView,
@@ -12,7 +14,6 @@ import {
     ReducersList,
 } from 'shared/lib/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/useAppDispatch/useAppDispatch';
-import { Page } from 'shared/ui/Page/Page';
 
 import {
     getArticlesPageError,

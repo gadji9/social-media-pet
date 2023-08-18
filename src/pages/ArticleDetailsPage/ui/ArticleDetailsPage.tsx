@@ -3,7 +3,9 @@ import { RoutePath } from 'app/providers/router/routeConfig/routeConfig';
 import { FunctionComponent, memo, useCallback, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { Navigate, useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
+
+import { Page } from 'widgets/Page';
 
 import { AddCommentForm } from 'features/addCommentForm';
 
@@ -17,7 +19,6 @@ import {
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useAppDispatch } from 'shared/lib/useAppDispatch/useAppDispatch';
 import { Button, ThemeButton } from 'shared/ui/Button/Button';
-import { Page } from 'shared/ui/Page/Page';
 import { Text } from 'shared/ui/Text/Text';
 
 import { getArticleCommentsIsLoading } from '../model/selectors/comments';
