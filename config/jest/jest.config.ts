@@ -2,7 +2,6 @@
  * For a detailed explanation regarding each configuration property and type check, visit:
  * https://jestjs.io/docs/configuration
  */
-
 import path from 'path/posix';
 
 export default {
@@ -37,6 +36,9 @@ export default {
         __IS_DEV__: true,
         __API__: '',
         __PROJECT__: 'jest',
+        window: {
+            location: {},
+        },
     },
     // preset: 'ts-jest',
     // Indicates whether the coverage information should be collected while executing the test

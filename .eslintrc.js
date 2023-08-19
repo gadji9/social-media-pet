@@ -57,5 +57,6 @@ module.exports = {
         __API__: true,
         __PROJECT_: true,
         DeepPartial: true,
+        SortOrder: true,
     },
 };

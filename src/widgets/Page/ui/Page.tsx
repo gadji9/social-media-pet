@@ -69,7 +69,7 @@ export const Page: FunctionComponent<IPageProps> = ({
             onScroll={onScroll}
         >
             {children}
-            <div ref={triggerRef} />
+            {onScrollEnd && <div className={cls.trigger} ref={triggerRef} />}
         </section>
     );
 };
