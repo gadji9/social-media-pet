@@ -1,11 +1,16 @@
 import { RoutePath } from 'app/providers/router/routeConfig/routeConfig';
 
-import { FunctionComponent, useCallback } from 'react';
+import {
+    FunctionComponent,
+    HTMLAttributeAnchorTarget,
+    useCallback,
+} from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 
 import EyeIcon from 'shared/assets/icons/eye.svg';
 import { classNames } from 'shared/lib/classNames/classNames';
+import { AppLink } from 'shared/ui/AppLink/AppLink';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Button, ThemeButton } from 'shared/ui/Button/Button';
 import { Card } from 'shared/ui/Card/Card';
@@ -25,20 +30,18 @@ interface IArticleListItemProps {
     className?: string;
     article: Article;
     view: ArticleView;
+    linkTarget?: HTMLAttributeAnchorTarget;
 }
 
 export const ArticleListItem: FunctionComponent<IArticleListItemProps> = ({
     className,
     article,
     view,
+    linkTarget,
 }) => {
     const { t } = useTranslation('articles');
 
     const navigate = useNavigate();
-
-    const onOpenArticle = useCallback(() => {
-        navigate(RoutePath.article_details + article.id);
-    }, [article.id, navigate]);
 
     if (view === ArticleView.BIG) {
         const textBlock = article.blocks.find(
@@ -78,12 +81,14 @@ export const ArticleListItem: FunctionComponent<IArticleListItemProps> = ({
                         />
                     )}
                     <div className={cls.footer}>
-                        <Button
-                            theme={ThemeButton.OUTLINE}
-                            onClick={onOpenArticle}
+                        <AppLink
+                            target={linkTarget}
+                            to={RoutePath.article_details + article.id}
                         >
-                            {t('Читать далее...')}
-                        </Button>
+                            <Button theme={ThemeButton.OUTLINE}>
+                                {t('Читать далее...')}
+                            </Button>
+                        </AppLink>
                         <Text
                             text={article.views.toString()}
                             className={cls.views}
@@ -96,13 +101,15 @@ export const ArticleListItem: FunctionComponent<IArticleListItemProps> = ({
     }
 
     return (
-        <article
+        <AppLink
+            target={linkTarget}
+            to={RoutePath.article_details + article.id}
             className={classNames(cls.ArticleListItem, {}, [
                 className,
                 cls[view],
             ])}
         >
-            <Card className={cls.card} onClick={onOpenArticle}>
+            <Card className={cls.card}>
                 <div className={cls.imageWrapper}>
                     <img
                         src={article.img}
@@ -124,6 +131,6 @@ export const ArticleListItem: FunctionComponent<IArticleListItemProps> = ({
                 </div>
                 <Text text={article.title} className={cls.title} />
             </Card>
-        </article>
+        </AppLink>
     );
 };

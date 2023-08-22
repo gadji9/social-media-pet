@@ -1,4 +1,4 @@
-import { FunctionComponent } from 'react';
+import { FunctionComponent, HTMLAttributeAnchorTarget } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { classNames } from 'shared/lib/classNames/classNames';
@@ -14,6 +14,7 @@ interface IArticleListProps {
     articles: Article[];
     isLoading?: boolean;
     view?: ArticleView;
+    linkTarget?: HTMLAttributeAnchorTarget;
 }
 
 const getSkeletons = (view: ArticleView) => {
@@ -33,10 +34,16 @@ export const ArticleList: FunctionComponent<IArticleListProps> = ({
     articles,
     isLoading,
     view = ArticleView.SMALL,
+    linkTarget,
 }) => {
     const { t } = useTranslation();
     const renderArticle = (article: Article) => (
-        <ArticleListItem key={article.id} article={article} view={view} />
+        <ArticleListItem
+            linkTarget={linkTarget}
+            key={article.id}
+            article={article}
+            view={view}
+        />
     );
 
     if (!isLoading && !articles.length) {
